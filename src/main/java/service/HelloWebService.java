@@ -29,7 +29,7 @@ import util.ValidarCpf;
 @ApplicationPath("/resource")
 public class HelloWebService extends Application{
 	
-	Adocao adocao = new Adocao();
+	//Adocao adocao = new Adocao();
 	MausTratos mausTratos = new MausTratos();
 	
 	DAO dao = new DAO();
@@ -55,6 +55,7 @@ public class HelloWebService extends Application{
 	 * @param Integer idade
 	 */
 	
+	
 	@POST
 	@Path("/salvarAdocao")
 	public void salvarAdocao(
@@ -72,26 +73,31 @@ public class HelloWebService extends Application{
 			@FormParam("raca") String raca,
 			@FormParam("sexo") String sexo,
 			@FormParam("castrado") String castrado,
-			@FormParam("idade") Integer idade){
+			@FormParam("idade") String idade){
 		
 		try {
-			adocao.setNomeAnunciante(nomeAnunciante);
-			adocao.setCpf(cpf);
-			adocao.setTelefone(telefone);
-			adocao.setEndereco(endereco);
-			adocao.setNumCasa(numCasa);
-			adocao.setNomeAnimal(nomeAnimal);
-			adocao.setDescricaoAnimal(descricaoAnimal);
-			adocao.setEspecie(especie);
-			adocao.setPorte(porte);
-			adocao.setPeso(peso);
-			adocao.setPelagem(pelagem);
-			adocao.setRaca(raca);
-			adocao.setSexo(sexo);
-			adocao.setCastrado(castrado);
-			adocao.setIdade(idade);
+			Adocao adocao=new Adocao();
 			
-			dao.inserir(adocao);
+				
+			adocao.setNomeAnunciante("Jorge");
+			adocao.setTelefone("4456789000");
+			adocao.setEndereco("Rua a");
+			adocao.setNumCasa("4");
+			adocao.setCpf("09066112964");
+			
+			adocao.setNomeAnimal("Bob");
+			adocao.setDescricaoAnimal("atentado");
+			adocao.setEspecie("cachorro");
+			adocao.setPorte("pequeno");
+			adocao.setPeso("3");
+			adocao.setPelagem("pelos baixo, preto e branco");
+			adocao.setRaca("vira lata");
+			adocao.setSexo("macho");
+			adocao.setCastrado("sim");
+			adocao.setIdade("3");
+			DAO daoa=new DAO();
+			
+			daoa.inserir(adocao);
 			adocao = new Adocao();
 			
 			
@@ -128,7 +134,7 @@ public class HelloWebService extends Application{
 	
 	@POST
 	@Path("/salvarMausTratos")
-	public void salvaarMausTratos(
+	public void salvarMausTratos(
 			@FormParam("nome") String nome,
 			@FormParam("telefone") String telefone,
 			@FormParam("descricaoAnimal") String descricaoAnimal,

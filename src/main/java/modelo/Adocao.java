@@ -32,7 +32,7 @@ public class Adocao implements Serializable{
     private String raca;
     private String sexo;
     private String castrado;
-    private Integer idade;
+    private String idade;
     
     public Adocao(){
     	
@@ -40,7 +40,7 @@ public class Adocao implements Serializable{
 
 	public Adocao(Long id, String nomeAnunciante, String cpf, String telefone, String endereco, String numCasa,
 			String nomeAnimal, String descricaoAnimal, String especie, String porte, String peso, String pelagem,
-			String raca, String sexo, String castrado, Integer idade) {
+			String raca, String sexo, String castrado, String idade) {
 		super();
 		this.id = id;
 		this.nomeAnunciante = nomeAnunciante;
@@ -180,11 +180,11 @@ public class Adocao implements Serializable{
 		this.castrado = castrado;
 	}
 
-	public Integer getIdade() {
+	public String getIdade() {
 		return idade;
 	}
 
-	public void setIdade(Integer idade) {
+	public void setIdade(String idade) {
 		this.idade = idade;
 	}
     

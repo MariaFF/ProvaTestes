@@ -8,6 +8,7 @@ import javax.persistence.Query;
 
 public class DAO {
 	
+
 	EntityManager em;
 
 	public List listar(Class classe) {
@@ -24,14 +25,6 @@ public class DAO {
 		return q.getResultList();
 	}
 
-	public List listaCondicao(Class classe, String condicao) {
-		em = Banco.getInstancia().getEm();
-		em.getTransaction().begin();
-		Query q = em.createQuery("from " + classe.getSimpleName() + " where " + condicao);
-		em.getTransaction().commit();
-		return q.getResultList();
-	}
-
 	public void inserir(Object obj) {
 		try {
 			em = Banco.getInstancia().getEm();
@@ -44,7 +37,7 @@ public class DAO {
 		}
 	}
 
-	public void exluir(Object objeto){
+	public void exluir(Object objeto) throws Exception {
 		try {
 			em = Banco.getInstancia().getEm();
 			em.getTransaction().begin();
@@ -64,15 +57,6 @@ public class DAO {
 		em.getTransaction().begin();
 		em.merge(objeto);
 		em.getTransaction().commit();
-	}
-
-	public Object recupera(Class classe, Long id) {
-		em = Banco.getInstancia().getEm();
-		Object retornando = null;
-		em.getTransaction().begin();
-		retornando = em.find(classe, id);
-		em.getTransaction().commit();
-		return retornando;
 	}
 
 
